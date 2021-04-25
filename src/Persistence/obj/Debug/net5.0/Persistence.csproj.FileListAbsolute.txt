@@ -3,3 +3,13 @@ C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\Persi
 C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfoInputs.cache
 C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfo.cs
+C:\Users\NewAge\source\repos\reactivities\src\Persistence\bin\Debug\net5.0\Persistence.deps.json
+C:\Users\NewAge\source\repos\reactivities\src\Persistence\bin\Debug\net5.0\Persistence.dll
+C:\Users\NewAge\source\repos\reactivities\src\Persistence\bin\Debug\net5.0\ref\Persistence.dll
+C:\Users\NewAge\source\repos\reactivities\src\Persistence\bin\Debug\net5.0\Persistence.pdb
+C:\Users\NewAge\source\repos\reactivities\src\Persistence\bin\Debug\net5.0\Domain.pdb
+C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\Persistence.csproj.CoreCompileInputs.cache
+C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\Persistence.csproj.CopyComplete
+C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\Persistence.dll
+C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\ref\Persistence.dll
+C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\Persistence.pdb
