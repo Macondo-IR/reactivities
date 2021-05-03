@@ -8,11 +8,15 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MediatR;
 using Persistence;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Activities;
+using System.Reflection;
 
 namespace API
 {
@@ -38,7 +42,9 @@ namespace API
             services.AddDbContext<DataContext>(opt =>
             {
                 opt.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
-            });
+            }); 
+            //services.AddMediatR(Assembly.GetExecutingAssembly());
+            
             services.AddCors(opt =>
             {
                 opt.AddPolicy("CorsPolicy", policy =>
@@ -46,6 +52,8 @@ namespace API
                      policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
                  });
             });
+ 
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,7 +70,6 @@ namespace API
 
             app.UseRouting();
             app.UseCors("CorsPolicy");
-                
 
             app.UseAuthorization();
 

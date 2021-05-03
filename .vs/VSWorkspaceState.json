@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src"
+    "\\src",
+    "\\src\\SecondApi",
+    "\\src\\SecondApi\\Controllers"
   ],
-  "SelectedNode": "\\src\\Reactivity.sln",
+  "SelectedNode": "\\src\\SecondApi\\Controllers\\ActivitiesController.cs",
   "PreviewInSolutionExplorer": false
 }
