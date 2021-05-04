@@ -1,21 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Persistence;
-using MediatR;
-using Application.Activities;
-using Application.Core;
-using AutoMapper;
+using SecondApi.Extentions;
 
 namespace SecondApi
 {
@@ -34,25 +22,7 @@ namespace SecondApi
         {
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
-            });
-            services.AddDbContext<DataContext>(opt =>
-            {
-                opt.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
-            });
-            //services.AddMediatR(Assembly.GetExecutingAssembly());
-
-            services.AddCors(opt =>
-            {
-                opt.AddPolicy("CorsPolicy", policy =>
-                {
-                    policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
-                });
-            });
-            services.AddMediatR(typeof(List.Handler).Assembly);
-            services.AddAutoMapper(typeof(MappingProfiles).Assembly);
+            services.AddApplicationServices( _config);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
