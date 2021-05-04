@@ -10,6 +10,7 @@ namespace Persistence
         {
         }
         public DbSet<Activity> Activities { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
  
     }

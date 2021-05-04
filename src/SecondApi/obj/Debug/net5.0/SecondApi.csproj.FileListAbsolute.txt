@@ -69,3 +69,5 @@ C:\Users\NewAge\source\repos\reactivities\src\SecondApi\obj\Debug\net5.0\SecondA
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Debug\net5.0\Humanizer.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
