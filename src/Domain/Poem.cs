@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Persistence
+namespace Domain
 {
-    public partial class Poem
+    public  class Poem
     {
         public Guid Id { get; set; }
         public Guid PoemIndexId { get; set; }

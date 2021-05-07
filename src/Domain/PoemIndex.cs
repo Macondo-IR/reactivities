@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Persistence
+namespace Domain
 {
-    public partial class PoemIndex
+    public  class PoemIndex
     {
         public PoemIndex()
         {

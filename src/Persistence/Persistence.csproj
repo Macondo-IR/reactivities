@@ -5,11 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\Domain\PeomContext.cs" Link="PeomContext.cs" />
-    <Compile Include="..\Domain\Poem.cs" Link="Poem.cs" />
-    <Compile Include="..\Domain\PoemIndex.cs" Link="PoemIndex.cs" />
-    <Compile Include="..\Domain\Poet.cs" Link="Poet.cs" />
-    <Compile Include="..\Domain\PoetMasterpiece.cs" Link="PoetMasterpiece.cs" />
+    <Compile Include="..\Domain\p\Poem.cs" Link="Poem.cs" />
+    <Compile Include="..\Domain\p\PoemIndex.cs" Link="PoemIndex.cs" />
+    <Compile Include="..\Domain\p\Poet.cs" Link="Poet.cs" />
+    <Compile Include="..\Domain\p\PoetMasterpiece.cs" Link="PoetMasterpiece.cs" />
   </ItemGroup>
 
   <ItemGroup>

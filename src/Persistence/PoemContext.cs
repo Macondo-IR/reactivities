@@ -1,22 +1,13 @@
-﻿using System;
+﻿
+using Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-#nullable disable
 
 namespace Persistence
 {
-    public partial class PeomContext : DbContext
+    public  class PeomContext : DbContext
     {
-        public PeomContext()
-        {
-        }
-
-        public PeomContext(DbContextOptions<PeomContext> options)
-            : base(options)
-        {
-        }
-
         public virtual DbSet<Poem> Poems { get; set; }
         public virtual DbSet<PoemIndex> PoemIndices { get; set; }
         public virtual DbSet<Poet> Poets { get; set; }
@@ -110,6 +101,5 @@ namespace Persistence
             OnModelCreatingPartial(modelBuilder);
         }
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-    }
+     }
 }
