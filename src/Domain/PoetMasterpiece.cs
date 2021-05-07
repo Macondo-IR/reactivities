@@ -10,7 +10,6 @@ namespace Domain
         public PoetMasterpiece()
         {
             PoemIndices = new HashSet<PoemIndex>();
-            Poems = new HashSet<Poem>();
         }
 
         public Guid Id { get; set; }
@@ -20,6 +19,5 @@ namespace Domain
 
         public virtual Poet Poet { get; set; }
         public virtual ICollection<PoemIndex> PoemIndices { get; set; }
-        public virtual ICollection<Poem> Poems { get; set; }
     }
 }

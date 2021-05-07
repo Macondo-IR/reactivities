@@ -9,7 +9,6 @@ namespace Domain
     {
         public Guid Id { get; set; }
         public Guid PoemIndexId { get; set; }
-        public Guid PoetMasterpieceId { get; set; }
         public int SortId { get; set; }
         public int? PoemId { get; set; }
         public int? Vorder { get; set; }
@@ -17,6 +16,5 @@ namespace Domain
         public string Text { get; set; }
 
         public virtual PoemIndex PoemIndex { get; set; }
-        public virtual PoetMasterpiece PoetMasterpiece { get; set; }
     }
 }

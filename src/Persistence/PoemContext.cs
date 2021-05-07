@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Persistence
 {
-    public  class PeomContext : DbContext
+    public  class PoemContext : DbContext
     {
         public virtual DbSet<Poem> Poems { get; set; }
         public virtual DbSet<PoemIndex> PoemIndices { get; set; }
@@ -22,84 +22,83 @@ namespace Persistence
             }
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.HasAnnotation("Relational:Collation", "Albanian_100_CI_AS");
+        //        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //        {
+        //            modelBuilder.HasAnnotation("Relational:Collation", "Albanian_100_CI_AS");
 
-            modelBuilder.Entity<Poem>(entity =>
-            {
-                entity.ToTable("Poem", "Poem");
+        //            modelBuilder.Entity<Poem>(entity =>
+        //            {
+        //                entity.ToTable("Poem", "Poem");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
+        //                entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.PoemId).HasColumnName("poem_id");
+        //                entity.Property(e => e.PoemId).HasColumnName("poem_id");
 
-                entity.Property(e => e.Position).HasColumnName("position");
+        //                entity.Property(e => e.Position).HasColumnName("position");
 
-                entity.Property(e => e.SortId).ValueGeneratedOnAdd();
+        //                entity.Property(e => e.SortId).ValueGeneratedOnAdd();
 
-                entity.Property(e => e.Text).HasColumnName("text");
+        //                entity.Property(e => e.Text).HasColumnName("text");
 
-                entity.Property(e => e.Vorder).HasColumnName("vorder");
+        //                entity.Property(e => e.Vorder).HasColumnName("vorder");
 
-                entity.HasOne(d => d.PoemIndex)
-                    .WithMany(p => p.Poems)
-                    .HasForeignKey(d => d.PoemIndexId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("Fk_Poem_index4");
+        //                entity.HasOne(d => d.PoemIndex)
+        //                    .WithMany(p => p.Poems)
+        //                    .HasForeignKey(d => d.PoemIndexId)
+        //                    .OnDelete(DeleteBehavior.ClientSetNull)
+        //                    .HasConstraintName("Fk_Poem_index4");
 
-                entity.HasOne(d => d.PoetMasterpiece)
-                    .WithMany(p => p.Poems)
-                    .HasForeignKey(d => d.PoetMasterpieceId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("Fk_Poem_index3");
-            });
+        //                entity.HasOne(d => d.PoetMasterpiece)
+        //                    .WithMany(p => p.Poems)
+        //                    .HasForeignKey(d => d.PoetMasterpieceId)
+        //                    .OnDelete(DeleteBehavior.ClientSetNull)
+        //                    .HasConstraintName("Fk_Poem_index3");
+        //            });
 
-            modelBuilder.Entity<PoemIndex>(entity =>
-            {
-                entity.ToTable("PoemIndex", "Poem");
+        //            modelBuilder.Entity<PoemIndex>(entity =>
+        //            {
+        //                entity.ToTable("PoemIndex", "Poem");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
+        //                entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.BookId).HasColumnName("book_id");
+        //                entity.Property(e => e.BookId).HasColumnName("book_id");
 
-                entity.Property(e => e.MainUrl).IsUnicode(false);
+        //                entity.Property(e => e.MainUrl).IsUnicode(false);
 
-                entity.Property(e => e.ParentUrl).IsUnicode(false);
+        //                entity.Property(e => e.ParentUrl).IsUnicode(false);
 
-                entity.Property(e => e.PoemIndexId).HasColumnName("Poem_index_id");
+        //                entity.Property(e => e.PoemIndexId).HasColumnName("Poem_index_id");
 
-                entity.HasOne(d => d.PoetMasterpiece)
-                    .WithMany(p => p.PoemIndices)
-                    .HasForeignKey(d => d.PoetMasterpieceId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("Fk_Poem_index");
-            });
+        //                entity.HasOne(d => d.PoetMasterpiece)
+        //                    .WithMany(p => p.PoemIndices)
+        //                    .HasForeignKey(d => d.PoetMasterpieceId)
+        //                    .OnDelete(DeleteBehavior.ClientSetNull)
+        //                    .HasConstraintName("Fk_Poem_index");
+        //            });
 
-            modelBuilder.Entity<Poet>(entity =>
-            {
-                entity.ToTable("Poet", "Poem");
+        //            modelBuilder.Entity<Poet>(entity =>
+        //            {
+        //                entity.ToTable("Poet", "Poem");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-            });
+        //                entity.Property(e => e.Id).ValueGeneratedNever();
+        //            });
 
-            modelBuilder.Entity<PoetMasterpiece>(entity =>
-            {
-                entity.ToTable("PoetMasterpiece", "Poem");
+        //            modelBuilder.Entity<PoetMasterpiece>(entity =>
+        //            {
+        //                entity.ToTable("PoetMasterpiece", "Poem");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
+        //                entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.Url).IsUnicode(false);
+        //                entity.Property(e => e.Url).IsUnicode(false);
 
-                entity.HasOne(d => d.Poet)
-                    .WithMany(p => p.PoetMasterpieces)
-                    .HasForeignKey(d => d.PoetId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("Fk_PoetId");
-            });
+        //                entity.HasOne(d => d.Poet)
+        //                    .WithMany(p => p.PoetMasterpieces)
+        //                    .HasForeignKey(d => d.PoetId)
+        //                    .OnDelete(DeleteBehavior.ClientSetNull)
+        //                    .HasConstraintName("Fk_PoetId");
+        //            });
 
-            OnModelCreatingPartial(modelBuilder);
-        }
+        //         }
 
-     }
+    }
 }

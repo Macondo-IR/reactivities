@@ -23,6 +23,10 @@ namespace SecondApi.Extentions
             services.AddDbContext<DataContext>(opt =>
             {
                 opt.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            }); 
+            services.AddDbContext<PoemContext>(opt =>
+            {
+                opt.UseSqlServer(config.GetConnectionString("PoemConnection"));
             });
             //services.AddMediatR(Assembly.GetExecutingAssembly());
 
