@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace Persistence
+{
+    public partial class Poet
+    {
+        public Poet()
+        {
+            PoetMasterpieces = new HashSet<PoetMasterpiece>();
+        }
+
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+
+        public virtual ICollection<PoetMasterpiece> PoetMasterpieces { get; set; }
+    }
+}

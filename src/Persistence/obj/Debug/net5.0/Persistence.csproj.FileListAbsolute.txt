@@ -13,3 +13,6 @@ C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\Persi
 C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\Persistence.dll
 C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\ref\Persistence.dll
 C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\Persistence.pdb
+C:\Users\NewAge\source\repos\reactivities\src\Persistence\bin\Debug\net5.0\Persistence.runtimeconfig.json
+C:\Users\NewAge\source\repos\reactivities\src\Persistence\bin\Debug\net5.0\Persistence.runtimeconfig.dev.json
+C:\Users\NewAge\source\repos\reactivities\src\Persistence\obj\Debug\net5.0\Persistence.genruntimeconfig.cache
