@@ -19,13 +19,13 @@ namespace SecondApi.Controllers
         {
             return await Mediator.Send(new List.Query());
         }
-        //[HttpGet("{id}")]
-        //public async  Task<ActionResult<Activity>> GetActivity(Guid id)
-        //{
-        //    return await Mediator.Send(new Details.Query { Id = id });
-        //}
-         //}
-
-
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Poet>> GetPoet(Guid id)
+        {
+            return await Mediator.Send(new Details.Query { Id = id });
+        }
     }
+
+
+
 }

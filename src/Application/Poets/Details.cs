@@ -11,21 +11,21 @@ namespace Application.Poets
 {
   public  class Details
     {
-        public class Query : IRequest<Activity> 
+        public class Query : IRequest<Poet> 
         {
             public Guid Id { get; set; }
         }
-        public class Handler : IRequestHandler<Query, Activity>
+        public class Handler : IRequestHandler<Query, Poet>
         {
-            private readonly DataContext _context;
+            private readonly PoemContext _context;
 
-            public Handler(DataContext context)
+            public Handler(PoemContext context)
             {
                 _context = context;
             }
-            public async Task<Activity> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<Poet> Handle(Query request, CancellationToken cancellationToken)
             {
-                return await _context.Activities.FindAsync(request.Id);
+                return await _context.Poets.FindAsync(request.Id);
             }
         }
     }

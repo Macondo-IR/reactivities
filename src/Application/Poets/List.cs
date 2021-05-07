@@ -23,12 +23,9 @@ namespace Application.Poets
                 _context = context;
             }
 
-            public Task<List<Poet>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<List<Poet>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var  list = _context.Poets.Take(3).ToListAsync();
-
-
-                return  list;
+                return  await _context.Poets.ToListAsync(); ;
             }
         }
     }

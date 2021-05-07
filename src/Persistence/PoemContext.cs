@@ -8,7 +8,7 @@ namespace Persistence
 {
     public  class PoemContext : DbContext
     {
-        public PoemContext(DbContextOptions options) : base(options)
+        public PoemContext(DbContextOptions<PoemContext> options) : base(options)
         {
 
         }
