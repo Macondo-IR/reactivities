@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Persistence;
 using SecondApi.Extentions;
 
 namespace SecondApi
@@ -21,7 +23,16 @@ namespace SecondApi
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers();  
+            services.AddDbContext<DataContext>(opt =>
+            {
+                opt.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
+            });
+            services.AddDbContext<PoemContext>(opt =>
+            {
+             opt.UseSqlServer("Server=.;DataBase=Ganjoor2;User Id=Sa;Password=1;");
+            });
+    
             services.AddApplicationServices( _config);
         }
 
