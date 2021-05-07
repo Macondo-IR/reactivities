@@ -5,13 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\Domain\p\Poem.cs" Link="Poem.cs" />
-    <Compile Include="..\Domain\p\PoemIndex.cs" Link="PoemIndex.cs" />
-    <Compile Include="..\Domain\p\Poet.cs" Link="Poet.cs" />
-    <Compile Include="..\Domain\p\PoetMasterpiece.cs" Link="PoetMasterpiece.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
