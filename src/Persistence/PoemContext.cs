@@ -10,9 +10,7 @@ namespace Persistence
     {
         public PoemContext(DbContextOptions<PoemContext> options) : base(options)
         {
-
         }
-
         public virtual DbSet<Poem> Poems { get; set; }
         public virtual DbSet<PoemIndex> PoemIndices { get; set; }
         public virtual DbSet<Poet> Poets { get; set; }

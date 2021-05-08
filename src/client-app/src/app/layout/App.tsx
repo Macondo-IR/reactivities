@@ -3,59 +3,40 @@ import { Container } from 'semantic-ui-react';
 import axios from 'axios';
 import { IActivity } from '../models/activity';
 import NavBar from '../../features/nav/NavBar';
-import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
+import { IPoet } from '../models/poet';
+import PoetDashboard from '../../features/poets/dashboard/PoetDashboard';
 
 const App = () => {
-  const [activities, setActivities] = useState<IActivity[]>([]);
-  const [selectedActivity, setSelectedActivity] = useState<IActivity | null>(
+  const [poets, setPoets] = useState<IPoet[]>([]);
+
+
+  const [selectedPoet, setSelectedPoet] = useState<IPoet | null>(
     null
   );
-  const [editMode, setEditMode] = useState(false);
-
-  const handleOpenCreateForm = () => {
-    setSelectedActivity(null);
-    setEditMode(true);
-  }
-
-  const handleCreateActivity = (activity: IActivity) => {
-    setActivities([...activities, activity]);
-    setSelectedActivity(activity);
-    setEditMode(false);
-  }
-
-  const handleEditActivity = (activity: IActivity) => {
-    setActivities([...activities.filter(a => a.id !== activity.id), activity])
-    setSelectedActivity(activity);
-    setEditMode(false);
-  }
-
-  const handleDeleteActivity = (id: string) => {
-    setActivities([...activities.filter(a => a.id !== id)])
-  }
-
-  const handleSelectActivity = (id: string) => {
-    setSelectedActivity(activities.filter(a => a.id === id)[0]);
-    setEditMode(false);
+ 
+  const handleSelectPoet = (id: string) => {
+    setSelectedPoet(poets.filter(a => a.id === id)[0]);
   };
+  const handleOpenCreateForm = () => {
+    setSelectedPoet(null);
+   };
+
 
   useEffect(() => {
     axios
-      .get<IActivity[]>('http://localhost:5000/api/activities')
-      .then(response => {
-        let activities: IActivity[] = [];
-        response.data.forEach(activity => {
-          activity.date = activity.date.split('.')[0]
-          activities.push(activity);
-        })
-        setActivities(activities);
-      });
-  }, []);
+    .get<IPoet[]>('http://localhost:5000/api/poet')
+    .then(response => {
+    
+      setPoets(response.data);
+
+      })
+    },[]);
 
   return (
     <Fragment>
       <NavBar openCreateForm={handleOpenCreateForm} />
       <Container style={{ marginTop: '7em' }}>
-        <ActivityDashboard
+        {/* <ActivityDashboard
           activities={activities}
           selectActivity={handleSelectActivity}
           selectedActivity={selectedActivity}
@@ -65,7 +46,14 @@ const App = () => {
           createActivity={handleCreateActivity}
           editActivity={handleEditActivity}
           deleteActivity={handleDeleteActivity}
+        /> */}
+          <PoetDashboard
+          poets={poets}
+          selectPoet={handleSelectPoet}
+          selectedPoet={selectedPoet}
+          setSelectedPoet={setSelectedPoet}
         />
+
       </Container>
     </Fragment>
   );

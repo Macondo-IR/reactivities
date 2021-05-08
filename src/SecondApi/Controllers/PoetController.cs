@@ -15,7 +15,7 @@ namespace SecondApi.Controllers
     {
 
         [HttpGet]
-        public async Task<ActionResult<List<Poet>>>GetActivities()
+        public async Task<ActionResult<List<Poet>>>GetPoets()
         {
             return await Mediator.Send(new List.Query());
         }
