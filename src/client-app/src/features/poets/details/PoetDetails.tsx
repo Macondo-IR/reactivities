@@ -17,7 +17,7 @@ const PoetDetails: React.FC<IProps> = ({poet, setSelectedPoet}) => {
     open={open}
    >
     <Modal.Header>{poet.name}</Modal.Header>
-    <Modal.Content image>
+    <Modal.Content image >
       <Image size='large' src={`/assets/poet/${poet.url}.gif`} wrapped />
       <Modal.Description>
         <Header>{poet.name}</Header>

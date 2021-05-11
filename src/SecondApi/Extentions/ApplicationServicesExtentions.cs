@@ -20,11 +20,15 @@ namespace SecondApi.Extentions
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
-           
 
-
-
-
+            services.AddDbContext<DataContext>(opt =>
+            {
+                opt.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            });
+            services.AddDbContext<PoemContext>(opt =>
+            {
+                opt.UseSqlServer(config.GetConnectionString("PoemConnection"));
+            });
             //services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddCors(opt =>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\inetpub\NewAgeApi</_PublishTargetUrl>
+    <History>True|2021-05-10T15:45:26.8942964Z;True|2021-05-09T17:07:28.6680280+04:30;False|2021-05-09T16:47:26.7108989+04:30;True|2021-05-09T16:46:20.3100684+04:30;True|2021-05-09T16:43:58.0595231+04:30;True|2021-05-09T16:41:24.8036148+04:30;False|2021-05-09T16:40:44.7175903+04:30;True|2021-05-09T16:00:25.3447881+04:30;False|2021-05-09T15:59:20.7342815+04:30;True|2021-05-09T15:19:47.8487291+04:30;False|2021-05-09T15:19:11.3723554+04:30;False|2021-05-09T15:18:30.7655557+04:30;True|2021-05-09T15:12:33.9879910+04:30;False|2021-05-09T15:07:34.5187971+04:30;</History>
+  </PropertyGroup>
+</Project>

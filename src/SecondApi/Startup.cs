@@ -24,14 +24,7 @@ namespace SecondApi
         {
 
             services.AddControllers();  
-            services.AddDbContext<DataContext>(opt =>
-            {
-                opt.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
-            });
-            services.AddDbContext<PoemContext>(opt =>
-            {
-             opt.UseSqlServer("Server=.;DataBase=Ganjoor2;User Id=Sa;Password=1;");
-            });
+
     
             services.AddApplicationServices( _config);
         }

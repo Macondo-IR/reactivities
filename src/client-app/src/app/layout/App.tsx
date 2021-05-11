@@ -5,10 +5,12 @@ import { IActivity } from '../models/activity';
 import NavBar from '../../features/nav/NavBar';
 import { IPoet } from '../models/poet';
 import PoetDashboard from '../../features/poets/dashboard/PoetDashboard';
+import agent from '../../app/api/agent';
+import LoadingComponents from './LoadingComponents';
 
 const App = () => {
   const [poets, setPoets] = useState<IPoet[]>([]);
-
+const[loading,setLoading]=useState<boolean>(true);
 
   const [selectedPoet, setSelectedPoet] = useState<IPoet | null>(
     null
@@ -23,16 +25,17 @@ const App = () => {
 
 
   useEffect(() => {
-    axios
-    .get<IPoet[]>('http://localhost:5000/api/poet')
-    .then(response => {
-    
-      setPoets(response.data);
+    agent.Poets.list().then(response=>{
+      setPoets(response);
+      setLoading(false);
 
-      })
+    });
     },[]);
 
+    if (loading) return <LoadingComponents content='Loading App' />
+    
   return (
+     
     <Fragment>
       <NavBar openCreateForm={handleOpenCreateForm} />
       <Container style={{ marginTop: '7em' }}>
