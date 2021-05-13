@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Container } from 'semantic-ui-react';
+import { Button, Container } from 'semantic-ui-react';
 import axios from 'axios';
 import { IActivity } from '../models/activity';
 import NavBar from '../../features/nav/NavBar';
@@ -7,9 +7,12 @@ import { IPoet } from '../models/poet';
 import PoetDashboard from '../../features/poets/dashboard/PoetDashboard';
 import agent from '../../app/api/agent';
 import LoadingComponents from './LoadingComponents';
+import { useStore } from '../stores/store';
+import { observer } from 'mobx-react-lite';
 
 const App = () => {
-  const [poets, setPoets] = useState<IPoet[]>([]);
+const {activityStore} =useStore();
+const [poets, setPoets] = useState<IPoet[]>([]);
 const[loading,setLoading]=useState<boolean>(true);
 
   const [selectedPoet, setSelectedPoet] = useState<IPoet | null>(
@@ -39,6 +42,8 @@ const[loading,setLoading]=useState<boolean>(true);
     <Fragment>
       <NavBar openCreateForm={handleOpenCreateForm} />
       <Container style={{ marginTop: '7em' }}>
+        <h3>{activityStore.title}</h3>
+        <Button content="Add ! to title" onClick={activityStore.setTitle}/>
         {/* <ActivityDashboard
           activities={activities}
           selectActivity={handleSelectActivity}
@@ -62,4 +67,4 @@ const[loading,setLoading]=useState<boolean>(true);
   );
 };
 
-export default App;
+export default observer(App);
