@@ -9,6 +9,7 @@ namespace Application.Core
         public MappingProfiles()
         {
             CreateMap<Activity, Activity>();
+            CreateMap<Contact, Contact>();
             CreateMap<Poet, Poet>();
         }
     }

@@ -1,4 +1,8 @@
 import axios, { AxiosResponse } from 'axios';
+import PoetDetails from '../../features/poets/details/PoetDetails';
+import { IActivity } from '../models/activity';
+import { IContact } from '../models/contact';
+import { IPoet } from '../models/poet';
 
 
 
@@ -29,12 +33,24 @@ const requests={
 }
 
 const Activities ={
-    list:()=>requests.get('/activities')
+    list:()=>requests.get('/activities'),
+    details:(id:string)=>requests.get<IActivity>(`/activities/${id}`),
+    create:(activity:IActivity)=>requests.post('/activities',activity),
+    delete:(id:string)=>requests.delete(`/activities/${id}`),
+}
+const Contacts ={
+    list:()=>requests.get('/contacts'),
+    details:(id:string)=>requests.get<IContact>(`/contacts/${id}`),
+    create:(contact:IContact)=>requests.post('/contacts',contact),
+    delete:(id:string)=>requests.delete(`/contacts/${id}`),
 }
 const Poets={
-    list:()=>requests.get('/poet')
+    list:()=>requests.get('/poet'),
+    details:(id:string)=>requests.get<IPoet>(`/poet/${id}`),
+    create:(poet:IPoet)=>requests.post('/poet',poet)
 }
+
 const agent={
-    Activities,Poets
+    Activities,Poets,Contacts
 }
 export default agent;
