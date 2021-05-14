@@ -1,4 +1,4 @@
-export interface IPoet {
+export interface Poet {
     id: string;
     name: string;
     description: string;

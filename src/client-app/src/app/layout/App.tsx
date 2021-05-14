@@ -1,51 +1,51 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Button, Container } from 'semantic-ui-react';
-import axios from 'axios';
-import { IActivity } from '../models/activity';
+import {  Container } from 'semantic-ui-react';
 import NavBar from '../../features/nav/NavBar';
-import { IPoet } from '../models/poet';
-import PoetDashboard from '../../features/poets/dashboard/PoetDashboard';
-import agent from '../../app/api/agent';
 import LoadingComponents from './LoadingComponents';
 import { useStore } from '../stores/store';
 import { observer } from 'mobx-react-lite';
+import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
+import { Activity } from '../models/activity';
 
 const App = () => {
 const {activityStore} =useStore();
-const [poets, setPoets] = useState<IPoet[]>([]);
+const[activities,setActivities]=useState<Activity[]>([]);
+const[selectedActivity,setSelectedActivity]=useState<Activity|undefined>(undefined);
+const[editMode,SetEditMode]=useState(false);
 const[loading,setLoading]=useState<boolean>(true);
-
-  const [selectedPoet, setSelectedPoet] = useState<IPoet | null>(
-    null
-  );
- 
-  const handleSelectPoet = (id: string) => {
-    setSelectedPoet(poets.filter(a => a.id === id)[0]);
-  };
-  const handleOpenCreateForm = () => {
-    setSelectedPoet(null);
-   };
-
-
+const [submiting, setSubmiting] = useState(false);
   useEffect(() => {
-    agent.Poets.list().then(response=>{
-      setPoets(response);
-      setLoading(false);
+    activityStore.loadActivites()
+    },[activityStore]);
 
-    });
-    },[]);
+    function handleSelectActivity(id:string)
+    {
+      setSelectedActivity(activities.find(x=>x.id==id));
+    }
+    function handleCancelSelectActivity(){
+      setSelectedActivity(undefined);
+    }
+    function handleFormOpen(id?:string){
+      id?handleSelectActivity(id):handleCancelSelectActivity();
+      SetEditMode(true);
+    }
+    function handleFormClose(){
+      SetEditMode(false);
+    }
 
-    if (loading) return <LoadingComponents content='Loading App' />
+
+
+    
+    if (activityStore.loadingInitial) return <LoadingComponents content='Loading App' />
     
   return (
      
     <Fragment>
       <NavBar openCreateForm={handleOpenCreateForm} />
       <Container style={{ marginTop: '7em' }}>
-        <h3>{activityStore.title}</h3>
-        <Button content="Add ! to title" onClick={activityStore.setTitle}/>
-        {/* <ActivityDashboard
-          activities={activities}
+
+        <ActivityDashboard
+          activities={activityStore.activities}
           selectActivity={handleSelectActivity}
           selectedActivity={selectedActivity}
           editMode={editMode}
@@ -54,13 +54,13 @@ const[loading,setLoading]=useState<boolean>(true);
           createActivity={handleCreateActivity}
           editActivity={handleEditActivity}
           deleteActivity={handleDeleteActivity}
-        /> */}
-          <PoetDashboard
+        /> 
+          {/* <PoetDashboard
           poets={poets}
           selectPoet={handleSelectPoet}
           selectedPoet={selectedPoet}
           setSelectedPoet={setSelectedPoet}
-        />
+        /> */}
 
       </Container>
     </Fragment>
