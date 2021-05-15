@@ -1,26 +1,14 @@
-import React, { useState, FormEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { Segment, Form, Button } from 'semantic-ui-react';
-import { IActivity } from '../../../app/models/activity';
-import {v4 as uuid} from 'uuid';
+ import { useStore } from '../../../app/stores/store';
+import { observer } from 'mobx-react-lite';
+ 
 
-interface IProps {
-  setEditMode: (editMode: boolean) => void;
-  activity: IActivity;
-  createActivity: (activity: IActivity) => void;
-  editActivity: (activity: IActivity) => void;
-}
+export default observer(function ActivityForm(){
+  const {activityStore} =useStore();
+  const {selectedActivity,closeForm,createActivity,updateActivity,loading}=activityStore;
 
-const ActivityForm: React.FC<IProps> = ({
-  setEditMode,
-  activity: initialFormState,
-  editActivity,
-  createActivity
-}) => {
-  const initializeForm = () => {
-    if (initialFormState) {
-      return initialFormState;
-    } else {
-      return {
+  const initialState=selectedActivity??{
         id: '',
         title: '',
         category: '',
@@ -28,30 +16,18 @@ const ActivityForm: React.FC<IProps> = ({
         date: '',
         city: '',
         venue: ''
-      };
-    }
-  };
+      }
 
-  const [activity, setActivity] = useState<IActivity>(initializeForm);
+  const [activity, setActivity] = useState(initialState); 
 
-  const handleSubmit = () => {
-    if (activity.id.length === 0) {
-      let newActivity = {
-        ...activity,
-        id: uuid()
-      };
-      createActivity(newActivity);
-    } else {
-      editActivity(activity);
-    }
-  };
-
-  const handleInputChange = (
-    event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = event.currentTarget;
-    setActivity({ ...activity, [name]: value });
-  };
+  function handleSubmit() {
+    activity.id?updateActivity(activity):createActivity(activity);
+  }
+  function handleInputChange (event:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)
+  {
+    const { name, value } = event.target; 
+    setActivity({ ...activity, [name]: value })
+  }
 
   return (
     <Segment clearing>
@@ -94,16 +70,9 @@ const ActivityForm: React.FC<IProps> = ({
           placeholder='Venue'
           value={activity.venue}
         />
-        <Button floated='right' positive type='submit' content='Submit' />
-        <Button
-          onClick={() => setEditMode(false)}
-          floated='right'
-          type='button'
-          content='Cancel'
-        />
+        <Button  loading={loading} floated='right' positive type='submit' content='Submit' />
+        <Button  onClick={closeForm}  floated='right' type='button' content='Cancel' />
       </Form>
     </Segment>
   );
-};
-
-export default ActivityForm;
+})

@@ -1,18 +1,17 @@
 import React from 'react';
 import { Item, Button, Label, Segment } from 'semantic-ui-react';
-import { IActivity } from '../../../app/models/activity';
+import { Activity } from '../../../app/models/activity';
+import { useStore } from '../../../app/stores/store';
 
-interface IProps {
-  activities: IActivity[];
-  selectActivity: (id: string) => void;
+interface Props {
+  activities: Activity[];
   deleteActivity: (id: string) => void;
+  submitting:boolean;
 }
-
-const ActivityList: React.FC<IProps> = ({
-  activities,
-  selectActivity,
-  deleteActivity
-}) => {
+export default function ActivityList({activities,deleteActivity,submitting}:Props)
+{
+  const {activityStore}=useStore();
+ 
   return (
     <Segment clearing>
       <Item.Group divided>
@@ -29,7 +28,7 @@ const ActivityList: React.FC<IProps> = ({
               </Item.Description>
               <Item.Extra>
                 <Button
-                  onClick={() => selectActivity(activity.id)}
+                  onClick={() => activityStore.selectActivity(activity.id)}
                   floated='right'
                   content='View'
                   color='blue'
@@ -48,6 +47,4 @@ const ActivityList: React.FC<IProps> = ({
       </Item.Group>
     </Segment>
   );
-};
-
-export default ActivityList;
+}

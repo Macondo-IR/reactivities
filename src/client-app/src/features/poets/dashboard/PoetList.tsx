@@ -1,9 +1,9 @@
 import React from 'react';
 import { Item, Button, Label, Segment } from 'semantic-ui-react';
-import { IPoet} from '../../../app/models/poet';
+import { Poet} from '../../../app/models/poet';
 
 interface IProps {
-  poets: IPoet[];
+  poets: Poet[];
   selectPoet: (id: string) => void;
 }
 

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
-import { IPoet } from '../../../app/models/poet';
+import { Poet } from '../../../app/models/poet';
 import PoetDetails from '../details/PoetDetails';
 import PoetList from './PoetList';
   
 interface IProps {
-  poets: IPoet[];
+  poets: Poet[];
   selectPoet: (id: string) => void;
-  selectedPoet: IPoet | null;
-  setSelectedPoet: (poet: IPoet | null) => void;
+  selectedPoet: Poet | null;
+  setSelectedPoet: (poet: Poet | null) => void;
 }
 
 const PoetDashboard: React.FC<IProps> = ({

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Card, Image, Button } from 'semantic-ui-react';
-import { IActivity } from '../../../app/models/activity';
+import { Activity } from '../../../app/models/activity';
 
 interface IProps {
-    activity: IActivity;
+    activity: Activity;
     setEditMode: (editMode: boolean) => void;
-    setSelectedActivity: (activity: IActivity | null) => void;
+    setSelectedActivity: (activity: Activity | null) => void;
 }
 
 const ActivityDetails: React.FC<IProps> = ({activity, setEditMode, setSelectedActivity}) => {

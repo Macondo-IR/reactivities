@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card, Image, Button,Modal, Header } from 'semantic-ui-react';
-import { IPoet } from '../../../app/models/poet';
+import { Poet } from '../../../app/models/poet';
 
 interface IProps {
-    poet: IPoet;
-    setSelectedPoet: (poet: IPoet | null) => void;
+    poet: Poet;
+    setSelectedPoet: (poet: Poet | null) => void;
 }
 
 const PoetDetails: React.FC<IProps> = ({poet, setSelectedPoet}) => {
