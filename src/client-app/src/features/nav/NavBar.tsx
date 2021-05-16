@@ -7,6 +7,8 @@ import { useStore } from '../../app/stores/store';
 
 
 export default function  NavBar() {
+
+  const {activityStore}=useStore();
   return (
     <Menu fixed='top' inverted>
       <Container>
@@ -17,9 +19,9 @@ export default function  NavBar() {
         <Menu.Item name='Activities' />
         <Menu.Item>
             {/* <Button as={NavLink} to='/createActivity' content='Create Activity' /> */}
-
+            <Button onClick={()=>activityStore.openForm()} positive content="Create Activity"/>
         </Menu.Item>
       </Container>
-    </Menu>
+    </Menu>   
   );
 }

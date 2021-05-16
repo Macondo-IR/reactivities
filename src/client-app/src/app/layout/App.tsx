@@ -1,12 +1,11 @@
-import  { useState, useEffect, Fragment } from 'react';
+import  { useEffect, Fragment } from 'react';
 // import {  Container } from 'semantic-ui-react';
 import NavBar from '../../features/nav/NavBar';
 import LoadingComponents from './LoadingComponents';
 import { useStore } from '../stores/store';
 import { observer } from 'mobx-react-lite';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
-import { Activity } from '../models/activity';
-import ActivityForm from '../../features/activities/form/ActivityForm';
+
 
 // export default App
 
@@ -14,20 +13,10 @@ import ActivityForm from '../../features/activities/form/ActivityForm';
 const App =() => {
   const {activityStore} =useStore();
 
-  const[activities,setActivities]=useState<Activity[]>([]);
-
-  const [submiting, setSubmiting] = useState(false);
-
   useEffect(() => {
     activityStore.loadActivities();
     },[activityStore]);
 
-  function handleDeleteActivity(id:string){
-    setSubmiting(true);
-    // agent.Activities.delete(id).then(()=>{});
-    setActivities([...activities.filter(x=>x.id!==id)]);
-    setSubmiting(false);
-  }
 
 
     
@@ -37,11 +26,7 @@ const App =() => {
      
     <Fragment>
       <NavBar   /> 
-      <ActivityDashboard
-      activities={activityStore.activities}
-      deleteActivity={handleDeleteActivity}
-      /> 
-      {/* <ActivityForm/> */}
+      <ActivityDashboard/> 
     </Fragment>
   );
 };
