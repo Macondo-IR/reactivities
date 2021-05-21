@@ -73,3 +73,11 @@ C:\Users\NewAge\source\repos\reactivities\src\SecondApi\obj\Release\net5.0\Secon
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\obj\Release\net5.0\ref\SecondApi.dll
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\obj\Release\net5.0\SecondApi.pdb
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\obj\Release\net5.0\SecondApi.genruntimeconfig.cache
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\FluentValidation.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\FluentValidation.AspNetCore.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\Microsoft.Extensions.Identity.Stores.dll

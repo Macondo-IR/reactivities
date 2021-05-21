@@ -78,3 +78,6 @@ C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Debug\net5.0\Microso
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll

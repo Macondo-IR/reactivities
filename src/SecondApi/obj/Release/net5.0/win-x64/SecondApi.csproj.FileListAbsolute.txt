@@ -411,3 +411,7 @@ C:\Users\NewAge\source\repos\reactivities\src\SecondApi\obj\Release\net5.0\win-x
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\obj\Release\net5.0\win-x64\ref\SecondApi.dll
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\obj\Release\net5.0\win-x64\SecondApi.pdb
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\obj\Release\net5.0\win-x64\SecondApi.genruntimeconfig.cache
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\win-x64\FluentValidation.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\win-x64\FluentValidation.AspNetCore.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\win-x64\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\win-x64\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
