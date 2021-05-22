@@ -1,11 +1,13 @@
 import { useState,  useEffect } from 'react';
-import { Segment, Button } from 'semantic-ui-react';
+import { Segment, Button,FormField,Label } from 'semantic-ui-react';
 import { useStore } from '../../../app/stores/store';
 import { observer } from 'mobx-react-lite';
 import { useHistory, useParams } from 'react-router';
 import LoadingComponents from '../../../app/layout/LoadingComponents';
 import { Link } from 'react-router-dom';
-import { Formik,Form,Field } from 'formik';
+import { Formik,Form,Field, ErrorMessage, } from 'formik';
+import * as Yup from 'yup';
+import MyTextInput from '../../../app/common/form/MyTextInput';
 
 export default observer(function ActivityForm(){
   const history=useHistory();
@@ -22,6 +24,12 @@ export default observer(function ActivityForm(){
     city: '',
     venue: '' 
   }); 
+  const validationSchema=Yup.object({
+    title:Yup.string().required('the activity title is required'),
+    description:Yup.string().required('the activity description is required')
+
+
+  })
 
   useEffect(() => {
     if(id) loadActivity(id).then(activity=>setActivity(activity!))
@@ -30,11 +38,11 @@ export default observer(function ActivityForm(){
   if(loadingInitial) return <LoadingComponents content='Loading' />
   return (
     <Segment clearing>
-      <Formik enableReinitialize initialValues={activity} onSubmit={values=>console.log(values)}>
+      <Formik enableReinitialize initialValues={activity} validationSchema={validationSchema} onSubmit={values=>console.log(values)}>
         {({handleSubmit})=>(
           <Form className='ui form' onSubmit={handleSubmit} autoComplete='off'>
-            <Field placeholder='Title' name='title'  />
-            <Field placeholder='Description'  name='description'  />
+            <MyTextInput placeholder='Title' name='title'/>
+            <MyTextInput placeholder='Description'  name='description'  />
             <Field placeholder='Category'  name='category'  />
             <Field type='datetime-local' placeholder='Date'  name='date'  />
             <Field  placeholder='City'  name='city'  />
