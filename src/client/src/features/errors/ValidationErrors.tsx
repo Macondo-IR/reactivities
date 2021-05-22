@@ -1,7 +1,6 @@
 
-import {Button, Header, Message, Segment} from "semantic-ui-react";
-import axios from 'axios';
-
+import {Message} from "semantic-ui-react";
+ 
 interface Props{
     errors:string[]|null;
     

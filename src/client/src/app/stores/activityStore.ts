@@ -45,10 +45,21 @@ export default class ActivityStore {
 
     loadActivity =async (id:string )=>{
         let  activtity=this.getActivity(id);
+        // console.log('in load activity ')
+        // console.log(activtity?.title);
+        // console.log('in load activity ')
+
         if(activtity){
+            // console.log('there is  activity ')
+            // console.log(activtity?.title);
+            // console.log(activtity?.id);
+            // console.log('there is  activity ')
+
             this.selectedActivity=activtity; 
             return activtity;
         }else{
+            // console.log('there is not any activity ')
+
             this.loadingInitial=true;
             try {
                 activtity= await agent.Activities.details(id);

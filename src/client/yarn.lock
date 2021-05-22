@@ -1974,6 +1974,11 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@types/yup@^0.29.11":
+  "integrity" "sha512-9cwk3c87qQKZrT251EDoibiYRILjCmxBvvcb4meofCmx1vdnNcR9gyildy5vOHASpOKMsn42CugxUvcwK5eu1g=="
+  "resolved" "https://registry.npmjs.org/@types/yup/-/yup-0.29.11.tgz"
+  "version" "0.29.11"
+
 "@typescript-eslint/eslint-plugin@^4.0.0", "@typescript-eslint/eslint-plugin@^4.5.0":
   "integrity" "sha512-uiQQeu9tWl3f1+oK0yoAv9lt/KXO24iafxgQTkIYO/kitruILGx3uH+QtIAHqxFV+yIsdnJH+alel9KuE3J15Q=="
   "resolved" "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-4.15.2.tgz"

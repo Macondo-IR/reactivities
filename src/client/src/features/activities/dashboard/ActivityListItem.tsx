@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Item, Button, Segment, Icon } from 'semantic-ui-react';
 import { Activity } from '../../../app/models/activity';
-import { useStore } from '../../../app/stores/store';
+// import { useStore } from '../../../app/stores/store';
 
 interface Props{
     activity:Activity
@@ -9,8 +9,8 @@ interface Props{
 
 export default function ActivityListItem  ({activity}:Props)    
 {  
-    const {activityStore}=useStore();
-    const {deleteActivity,loading}=activityStore;
+    // const {activityStore}=useStore();
+    // const {deleteActivity,loading}=activityStore;
 
     return (
 <Segment.Group>

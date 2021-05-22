@@ -1,22 +1,21 @@
-import { useState, ChangeEvent, useEffect } from 'react';
+import { useState,  useEffect } from 'react';
 import { Segment, Button } from 'semantic-ui-react';
 import { useStore } from '../../../app/stores/store';
 import { observer } from 'mobx-react-lite';
 import { useHistory, useParams } from 'react-router';
 import LoadingComponents from '../../../app/layout/LoadingComponents';
-import {v4 as uuid } from 'uuid'; 
 import { Link } from 'react-router-dom';
 import { Formik,Form,Field } from 'formik';
 
 export default observer(function ActivityForm(){
   const history=useHistory();
   const {activityStore} =useStore();
-  const {createActivity,updateActivity,loading,loadActivity,loadingInitial}=activityStore;
+  const {loading,loadActivity,loadingInitial}=activityStore;
  const {id}=useParams<{id:string}>();
 
   const [activity, setActivity] = useState({
     id: '',
-    title: '',
+    title: 'tets',
     category: '',
     description: '',
     date: '',
@@ -28,26 +27,6 @@ export default observer(function ActivityForm(){
     if(id) loadActivity(id).then(activity=>setActivity(activity!))
     },[id,loadActivity]);
 
-  // function handleSubmit() {
-  //   if(activity.id.length===0)
-  //   {
-  //     let newActivity={
-  //       ...activity,
-  //       id:uuid()
-  //     };
-  //     createActivity(newActivity).then(()=>{
-  //       history.push(`/activities/${newActivity.id}`)
-  //     });
-
-  //   }else{
-  //     updateActivity(activity).then(()=>history.push(`/activities/${activity.id}`))
-  //   }
-  // }
-  // function handleChange (event:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)
-  // {
-  //   const { name, value } = event.target; 
-  //   setActivity({ ...activity, [name]: value })
-  // }
   if(loadingInitial) return <LoadingComponents content='Loading' />
   return (
     <Segment clearing>
