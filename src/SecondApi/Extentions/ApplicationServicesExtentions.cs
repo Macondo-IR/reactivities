@@ -29,6 +29,14 @@ namespace SecondApi.Extentions
             {
                 opt.UseSqlServer(config.GetConnectionString("PoemConnection"));
             });
+            services.AddDbContext<SimpleSbssContext>(opt =>
+            {
+                opt.UseSqlServer(config.GetConnectionString("SimpleSbssConnection"));
+            });  
+            services.AddDbContext<Qeraat2Context>(opt =>
+            {
+                opt.UseSqlServer(config.GetConnectionString("Qeraat2Connection"));
+            });
             //services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddCors(opt =>
@@ -41,6 +49,7 @@ namespace SecondApi.Extentions
             services.AddMediatR(typeof(Application.Activities.List.Handler).Assembly);
             services.AddMediatR(typeof(Application.Contacts.List.Handler).Assembly);
             services.AddMediatR(typeof(Application.Poets.List.Handler).Assembly);
+            services.AddMediatR(typeof(Application.UserContacts.List.Handler).Assembly);
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
             return services;
         }

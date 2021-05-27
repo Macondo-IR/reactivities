@@ -2,7 +2,6 @@ C:\Users\NewAge\source\repos\reactivities\src\Domain\bin\Release\net5.0\Domain.d
 C:\Users\NewAge\source\repos\reactivities\src\Domain\bin\Release\net5.0\Domain.dll
 C:\Users\NewAge\source\repos\reactivities\src\Domain\bin\Release\net5.0\ref\Domain.dll
 C:\Users\NewAge\source\repos\reactivities\src\Domain\bin\Release\net5.0\Domain.pdb
-C:\Users\NewAge\source\repos\reactivities\src\Domain\obj\Release\net5.0\Domain.csprojAssemblyReference.cache
 C:\Users\NewAge\source\repos\reactivities\src\Domain\obj\Release\net5.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\NewAge\source\repos\reactivities\src\Domain\obj\Release\net5.0\Domain.AssemblyInfoInputs.cache
 C:\Users\NewAge\source\repos\reactivities\src\Domain\obj\Release\net5.0\Domain.AssemblyInfo.cs
@@ -10,3 +9,4 @@ C:\Users\NewAge\source\repos\reactivities\src\Domain\obj\Release\net5.0\Domain.c
 C:\Users\NewAge\source\repos\reactivities\src\Domain\obj\Release\net5.0\Domain.dll
 C:\Users\NewAge\source\repos\reactivities\src\Domain\obj\Release\net5.0\ref\Domain.dll
 C:\Users\NewAge\source\repos\reactivities\src\Domain\obj\Release\net5.0\Domain.pdb
+C:\Users\NewAge\source\repos\reactivities\src\Domain\obj\Release\net5.0\Domain.csprojAssemblyReference.cache

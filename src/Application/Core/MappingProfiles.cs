@@ -1,6 +1,7 @@
 ﻿
 using AutoMapper;
 using Domain;
+using Domain.Qeraat2;
 
 namespace Application.Core
 {
@@ -11,6 +12,7 @@ namespace Application.Core
             CreateMap<Activity, Activity>();
             CreateMap<Contact, Contact>();
             CreateMap<Poet, Poet>();
+            CreateMap<UserContact, UserContact>();
         }
     }
 }
