@@ -8,7 +8,7 @@ namespace Domain.Qeraat2
 {
    public class UserContact
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public int ZoneId { get; set; }
         public string UserId { get; set; }
         public string PersonelName { get; set; }

@@ -2,6 +2,7 @@
 import { createContext, useContext } from "react";
 import ActivityStore from "./activityStore";
 import CommonStore from "./commonStore";
+import UserContactStore from "./userContactStore";
 
 interface Store{
     activityStore:ActivityStore;
@@ -9,7 +10,8 @@ interface Store{
 }
 export const store: Store={
     activityStore:new ActivityStore(),
-    commonStore:new CommonStore() 
+    commonStore:new CommonStore() ,
+    userContactStore:new UserContactStore()
 }
 export const StoreContext=createContext(store);
 

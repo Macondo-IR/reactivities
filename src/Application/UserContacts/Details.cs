@@ -14,7 +14,7 @@ namespace Application.UserContacts
     {
         public class Query : IRequest<Result<UserContact>>
         {
-            public int Id { get; set; }
+            public Guid Id { get; set; }
         }
         public class Handler : IRequestHandler<Query, Result<UserContact>>
         {

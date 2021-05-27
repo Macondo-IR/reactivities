@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
 import { history } from '../..';
 import { Activity } from '../models/activity';
-import { Contact } from '../models/contact';
+import { UserContact } from '../models/userContact';
 import { Poet } from '../models/poet';
 import { store } from '../stores/store';
 
@@ -70,12 +70,12 @@ const Activities ={
     delete:(id:string)=>requests.delete(`/activities/${id}`),
     update:(activity:Activity)=>requests.put(`/activities/${activity.id}`,activity)
 }
-const Contacts ={
-    list:()=>requests.get('/contacts'),
-    details:(id:string)=>requests.get<Contact>(`/contacts/${id}`),
-    create:(contact:Contact)=>requests.post('/contacts',contact),
-    delete:(id:string)=>requests.delete(`/contacts/${id}`),
-    update:(contact:Contact)=>requests.put(`/contacts/${contact.id}`,contact)
+const UserContacts ={
+    list:()=>requests.get('/UserContacts'),
+    details:(id:string)=>requests.get<UserContact>(`/UserContacts/${id}`),
+    create:(userContact:UserContact)=>requests.post('/UserContacts',userContact),
+    delete:(id:string)=>requests.delete(`/UserContacts/${id}`),
+    update:(contact:UserContact)=>requests.put(`/UserContacts/${contact.id}`,contact)
 }
 const Poets={
     list:()=>requests.get('/poet'),
@@ -84,6 +84,6 @@ const Poets={
 }
 
 const agent={
-    Activities,Poets,Contacts
+    Activities,Poets,UserContacts
 }
 export default agent;
