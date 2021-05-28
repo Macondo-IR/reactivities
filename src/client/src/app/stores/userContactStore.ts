@@ -4,9 +4,8 @@ import agent from '../api/agent';
 
 
 export default class UserContactStore {
-   // activities:Activity[]=[];
-    activityRegistry=new Map<string,Activity>();
-    selectedActivity:Activity|undefined =undefined;
+    userContactRegistry=new Map<string,UserContact>();
+    selectedUserContact:UserContact|undefined =undefined;
     editMode:boolean=false;
     loading:boolean=false;
     loadingInitial:boolean=false;
@@ -14,24 +13,51 @@ export default class UserContactStore {
     constructor() {
         makeAutoObservable(this);    
     }
-    get activitiesByDate(){
-        return Array.from(this.activityRegistry.values()).sort((a,b)=>a.date!.getTime()-b.date!.getTime())
+    clearUserContacts(){
+        this.userContactRegistry.clear();
     }
-    get groupedActivities(){
+    get userContactsBy(){
+        return Array.from(this.userContactRegistry.values())
+    }
+    get groupedUserContacts(){
         return Object.entries(
-            this.activitiesByDate.reduce((activities,activity)=>{
-                const date=format(activity.date!,'dd MM yyyy');
-                activities[date]=activities[date]?[...activities[date],activity]:[activity];
-                return activities
-            },{} as {[key:string]:Activity[]})
+            this.userContactsBy.reduce((userContacts,userContact)=>{
+                const lName=userContact.lastName;
+
+                userContacts[lName]=userContacts[lName]?[...userContacts[lName],userContact]:[userContact];
+                return userContacts
+            },{} as {[key:string]:UserContact[]})
         )
     }
-    loadActivities = async () => {
+    searchUserContacts = async (text:string) => {
+        console.log('search started');
+
+        this.loadingInitial = true;
+        this.clearUserContacts();
+        try {
+
+            const userContacts:UserContact[]= await agent.UserContacts.search(text);
+            userContacts.forEach(user => {
+                this.setUserContact(user);
+            })
+            console.log('in array there is this items');
+            console.log(userContacts.length);
+
+            this.loadingInitial = false;
+            console.log('search finished');
+            
+        } catch (error) {
+            console.log(error);
+            this.loadingInitial = false;
+        }
+    }
+
+    loadUserContacts = async () => {
         this.loadingInitial = true;
         try {
-            const activities:Activity[]= await agent.Activities.list();
-            activities.forEach(activity => {
-                this.setActivity(activity);
+            const userContacts:UserContact[]= await agent.UserContacts.list();
+            userContacts.forEach(user => {
+                this.setUserContact(user);
             })
             this.loadingInitial = false;
         } catch (error) {
@@ -39,40 +65,32 @@ export default class UserContactStore {
             this.loadingInitial = false;
         }
     }
-    private setActivity=(activity:Activity)=>{
-        activity.date=new Date(activity.date!);
-        this.activityRegistry.set(activity.id,activity);
+    private setUserContact=(userContact:UserContact)=>{
+         this.userContactRegistry.set(userContact.id,userContact);
     }
 
-    loadActivity =async (id:string )=>{
-        let  activtity=this.getActivity(id);
-        // console.log('in load activity ')
-        // console.log(activtity?.title);
-        // console.log('in load activity ')
+    loadUserContact=async (id:string )=>{
+        let  userContact=this.getUserContact(id);
+  
 
-        if(activtity){
-            // console.log('there is  activity ')
-            // console.log(activtity?.title);
-            // console.log(activtity?.id);
-            // console.log('there is  activity ')
+        if(userContact){
+        
 
-            this.selectedActivity=activtity; 
-            return activtity;
+            this.selectedUserContact=userContact; 
+            return userContact;
         }else{
-            // console.log('there is not any activity ')
 
             this.loadingInitial=true;
             try {
-                activtity= await agent.Activities.details(id);
-                this.setActivity(activtity!);
-                this.selectedActivity=activtity;  
+                userContact= await agent.UserContacts.details(id);
+                this.setUserContact(userContact!);
+                this.selectedUserContact=userContact;  
 
                 runInAction(()=>{
-                    this.selectedActivity=activtity;
+                    this.selectedUserContact=userContact;
                 })
-                //this.setActivity(activtity);
                 this.setLoadingInitial(false);
-                return activtity;
+                return userContact;
 
             } catch (error) {
                 console.log(error);
@@ -81,23 +99,23 @@ export default class UserContactStore {
             }
         }
     }
-    private getActivity =(id:string) =>{
-        return this.activityRegistry.get(id);
+    private getUserContact =(id:string) =>{
+        return this.userContactRegistry.get(id);
     }
+
 
 
     setLoadingInitial =(state:boolean)=>{
         this.loadingInitial=state;
     }
   
-    createActivity=async (activity:Activity)=>{
+    createUserContact=async (userContact:UserContact)=>{
         this.loading=true;
         try{
-            await agent.Activities.create(activity);
+            await agent.UserContacts.create(userContact);
             runInAction(()=>{
-                // this.activities.push(activity);
-                this.activityRegistry.set(activity.id,activity);
-                this.selectedActivity=activity;
+                this.userContactRegistry.set(userContact.id,userContact);
+                this.selectedUserContact=userContact;
                 this.editMode=false;
                 this.loading=false;
                 console.log('finished');
@@ -109,15 +127,14 @@ export default class UserContactStore {
             })
         }
     }
-    updateActivity=async(activity:Activity)=>{
+    updateUserContact=async(userContact:UserContact)=>{
         this.loading=true;
         try {
-            await agent.Activities.update(activity);
+            await agent.UserContacts.update(userContact);
             runInAction(()=>{
-//                this.activities=[...this.activities.filter(a=>a.id!==activity.id),activity];
-                this.activityRegistry.set(activity.id,activity);
+                this.userContactRegistry.set(userContact.id,userContact);
 
-                this.selectedActivity=activity;
+                this.selectedUserContact=userContact;
                 this.editMode=false;
                 this.loading=false;
             })  
@@ -129,13 +146,12 @@ export default class UserContactStore {
         }
     }
 
-    deleteActivity=async(id:string)=>{
+    deleteUserContact=async(id:string)=>{
         this.loading=true;
         try {
             await agent.Activities.delete(id);
             runInAction(()=>{
-               // this.activities=[...this.activities.filter(a=>a.id!==id)];
-                this.activityRegistry.delete(id);
+                this.userContactRegistry.delete(id);
 
                 this.editMode=false;
                 this.loading=false;

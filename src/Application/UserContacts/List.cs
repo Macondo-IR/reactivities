@@ -26,7 +26,7 @@ namespace Application.UserContacts
 
             public async Task<Result<List<UserContact>>> Handle(Query request, CancellationToken cancellationToken)
             {
-                return Result<List<UserContact>>.Success( await _context.UserContacts.ToListAsync());            }
+                return Result<List<UserContact>>.Success( await _context.UserContacts.Take(100).ToListAsync());            }
             }
     }
 }

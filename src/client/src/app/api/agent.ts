@@ -61,6 +61,7 @@ const requests={
     post:<T>(url:string,body:{}) =>axios.post<T>(url,body).then(responceBody),
     put:<T>(url:string,body:{}) =>axios.put<T>(url,body).then(responceBody),
     delete:(url:string) =>axios.delete(url).then(responceBody)
+
 }
 
 const Activities ={
@@ -75,7 +76,8 @@ const UserContacts ={
     details:(id:string)=>requests.get<UserContact>(`/UserContacts/${id}`),
     create:(userContact:UserContact)=>requests.post('/UserContacts',userContact),
     delete:(id:string)=>requests.delete(`/UserContacts/${id}`),
-    update:(contact:UserContact)=>requests.put(`/UserContacts/${contact.id}`,contact)
+    update:(contact:UserContact)=>requests.put(`/UserContacts/${contact.id}`,contact),
+    search:(text:string)=>requests.get<UserContact>(`/UserContacts/search/${text}`)
 }
 const Poets={
     list:()=>requests.get('/poet'),

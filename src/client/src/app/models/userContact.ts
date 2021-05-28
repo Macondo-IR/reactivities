@@ -1,5 +1,5 @@
 export interface UserContact {
-    id: number;
+    id: string;
     zoneId: number;
     userId?: string;
     personelName: string;

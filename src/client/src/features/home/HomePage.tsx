@@ -29,9 +29,9 @@ const HomePage = () => {
           
         </Fragment>
         <Fragment>
-          <Header as='h1' inverted content={`Welcome to Reactivitities`} />
-          <Button as={Link} to='/activities' size='huge' inverted>
-              Go to activities!
+          <Header as='h1' inverted color='green' content={`Welcome to UserContacts`} />
+          <Button as={Link} to='/userContacts' size='huge' inverted>
+              Go to UserContacts!
             </Button>
         </Fragment>
  

@@ -415,3 +415,4 @@ C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\win-x
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\win-x64\FluentValidation.AspNetCore.dll
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\win-x64\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\NewAge\source\repos\reactivities\src\SecondApi\bin\Release\net5.0\win-x64\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\NewAge\source\repos\reactivities\src\SecondApi\obj\Release\net5.0\win-x64\SecondApi.csprojAssemblyReference.cache

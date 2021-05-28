@@ -7,6 +7,7 @@ import UserContactStore from "./userContactStore";
 interface Store{
     activityStore:ActivityStore;
     commonStore:CommonStore;
+    userContactStore:UserContactStore;
 }
 export const store: Store={
     activityStore:new ActivityStore(),
