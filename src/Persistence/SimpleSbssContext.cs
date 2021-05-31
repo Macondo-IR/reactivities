@@ -12,6 +12,7 @@ namespace Persistence
         public SimpleSbssContext(DbContextOptions<SimpleSbssContext> options) : base(options)
         {
         }
+        public virtual DbSet<BillingBase> tbBillingBase { get; set; }
         //public virtual DbSet<Person> tbPerson { get; set; }
 
 //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
